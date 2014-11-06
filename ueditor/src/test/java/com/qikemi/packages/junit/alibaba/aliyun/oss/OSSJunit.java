@@ -23,16 +23,15 @@ public class OSSJunit {
 		OSSClient client = OSSClientFactory.createOSSClient();
 		
 		Bucket bucket = BucketService.create(client, "bucketmy-bucket-nameamesdfswers");
-		
+//		
 //		try {
 //			PutObjectResult result = ObjectService.putObject(client, bucket.getName(), "jar/mysql-connector-java-5.1.33.jar", "D://mysql-connector-java-5.1.33.jar");
-			// 4F472D3ADF434264A7DDD2C8EE2B480A
-			// 4F472D3ADF434264A7DDD2C8EE2B480A
+////			 4F472D3ADF434264A7DDD2C8EE2B480A
+////			 4F472D3ADF434264A7DDD2C8EE2B480A
 //			System.out.println(result.getETag());
 //		} catch (FileNotFoundException e) {
 //		}
-//		ObjectListing listObject = ObjectService.listObject(client, "bucketmy-bucket-nameamesdfswers", null, "jar");
-		
+		ObjectListing listObject = ObjectService.listObject(client, "bucketmy-bucket-nameamesdfswers", null, "/upload/image");
 //		try {
 //			ObjectService.getObject(client, "bucketmy-bucket-nameamesdfswers", "mysql-connector-java-5.1.33.jar");
 //			
@@ -40,16 +39,16 @@ public class OSSJunit {
 //			e.printStackTrace();
 //		}
 		
-		String path = "D://mysql-connector-java-5.1.33.jar";
-		try {
-			InputStream inputStream = new FileInputStream(new File(path));
-			PutObjectResult result = ObjectService.putObject(client, bucket.getName(), "jar1/mysql-connector-java-5.1.33.jar", inputStream);
-			System.out.println(result.getETag());
-			
-		} catch (FileNotFoundException e) {
-		} catch (NumberFormatException e) {
-		} catch (IOException e) {
-		}
+//		String path = "D://mysql-connector-java-5.1.33.jar";
+//		try {
+//			InputStream inputStream = new FileInputStream(new File(path));
+//			PutObjectResult result = ObjectService.putObject(client, bucket.getName(), "jar1/mysql-connector-java-5.1.33.jar", inputStream);
+//			System.out.println(result.getETag());
+//			
+//		} catch (FileNotFoundException e) {
+//		} catch (NumberFormatException e) {
+//		} catch (IOException e) {
+//		}
 		
 	}
 	
