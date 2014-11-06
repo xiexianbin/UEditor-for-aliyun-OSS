@@ -1149,7 +1149,8 @@
 
         var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
 
-        return localhostPaht + projectName;
-
+//        return localhostPaht + projectName;
+        // 默认返回空，用来替代阿里云的数据 
+        return "";
     }
 })();
