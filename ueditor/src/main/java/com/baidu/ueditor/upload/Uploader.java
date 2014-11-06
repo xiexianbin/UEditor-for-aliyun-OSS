@@ -4,11 +4,16 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
+import org.json.JSONObject;
+
 import com.baidu.ueditor.define.State;
 import com.qikemi.packages.alibaba.aliyun.oss.properties.OSSClientProperties;
 import com.qikemi.packages.baidu.ueditor.upload.AsynUploaderThreader;
 
 public class Uploader {
+	private static Logger logger = Logger.getLogger(Uploader.class);
+	
 	private HttpServletRequest request = null;
 	private Map<String, Object> conf = null;
 
@@ -28,10 +33,12 @@ public class Uploader {
 			state = BinaryUploader.save(this.request, this.conf);
 			// 判别云同步 
 			if(OSSClientProperties.useStatus){
+					JSONObject stateJson = new JSONObject(state.toJSONString());
         			AsynUploaderThreader asynThreader = new AsynUploaderThreader();
-        			asynThreader.init(state.toJSONString());
+        			asynThreader.init(stateJson);
         			Thread uploadThreader = new Thread(asynThreader);
         			uploadThreader.start();
+        			state.putInfo("url", OSSClientProperties.endPoint + stateJson.getString("url"));
 			}
 		}
 		/* {
@@ -43,6 +50,7 @@ public class Uploader {
 		 * 	"size": "18827"
 		 * }
 		*/
+		logger.debug(state.toJSONString());
 		return state;
 	}
 }

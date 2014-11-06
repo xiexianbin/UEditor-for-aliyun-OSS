@@ -10,8 +10,8 @@ public class OSSClientProperties {
 
     private static Properties OSSKeyProperties = new Properties();
     // 阿里云是否启用配置
-    public static boolean useStatus = false;
     public static String bucketName = "";
+    public static boolean useStatus = false;
     public static String key = "";
     public static String secret = "";
     public static String endPoint = "";

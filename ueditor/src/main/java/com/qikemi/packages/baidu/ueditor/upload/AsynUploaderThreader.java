@@ -23,13 +23,13 @@ import com.qikemi.packages.utils.SystemUtil;
 public class AsynUploaderThreader extends Thread {
 
 	private static Logger logger = Logger.getLogger(AsynUploaderThreader.class);
-	private String state = "";
+	private JSONObject stateJson = null;
 
 	public AsynUploaderThreader() {
 	}
 
-	public void init(String state) {
-		this.state = state;
+	public void init(JSONObject stateJson) {
+		this.stateJson = stateJson;
 	}
 
 	@Override
@@ -39,8 +39,7 @@ public class AsynUploaderThreader extends Thread {
 
 		Bucket bucket = BucketService.create(client, OSSClientProperties.bucketName);
 		// 获取key，即文件的上传路径
-		JSONObject jsonObj = new JSONObject(state);
-		String key = jsonObj.getString("url").replaceFirst("/", "");
+		String key = stateJson.getString("url").replaceFirst("/", "");
 		try {
 			FileInputStream fileInputStream = new FileInputStream(new File(
 					SystemUtil.getProjectRootPath() + key));
