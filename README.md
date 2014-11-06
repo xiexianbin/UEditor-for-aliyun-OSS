@@ -10,7 +10,7 @@ Create By Xie Xianbin, Package for ueditor and aliyun's OSS.
 =====
 
 源代码：
-`
+```
 
 private String getPath ( File file ) {
 
@@ -20,18 +20,18 @@ private String getPath ( File file ) {
 
 }
 
-`
+```
 
 修改为：
 
-`
+```
 
 private String getPath ( File file ) {
    String path = file.getAbsolutePath();
    String str=path.replace(this.rootPath.replaceAll("\\/", "\\\\"), "\\" );
    return str;
 }
-`
+```
 
 （会导致“在线管理”下的图片不能显示Bug）
 
@@ -41,7 +41,7 @@ private String getPath ( File file ) {
 （1）：需要自定义一个方法，获取当前项目的地址（方法比较笨，可自行修改）
 ======
 
-`
+```
 function getRootPath(){
 
     //获取当前网址，如： http://localhost/ueditor/index.jsp
@@ -59,18 +59,18 @@ function getRootPath(){
 	return localhostPaht + projectName;
 
 }
-`
+```
 （2）分别在以下两个地方添加刚才获取的项目地址
 ======
 
 776行：
-`
+```
 src: getRootPath() + prefix + data.url,
 _src: getRootPath() + prefix + data.url,
-`
+```
 912行
-`
+```
 img.setAttribute('src', getRootPath() + urlPrefix + list[i].url + (list[i].url.indexOf('?') == -1 ? '?noCache=':'&noCache=') + (+new Date()).toString(36) );
 img.setAttribute('_src', getRootPath() + urlPrefix + list[i].url);
-`
+```
 
