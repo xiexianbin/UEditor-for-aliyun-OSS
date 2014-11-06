@@ -12,6 +12,7 @@ import com.baidu.ueditor.define.AppInfo;
 import com.baidu.ueditor.define.BaseState;
 import com.baidu.ueditor.define.MultiState;
 import com.baidu.ueditor.define.State;
+import com.qikemi.packages.alibaba.aliyun.oss.properties.OSSClientProperties;
 
 public class FileManager {
 
@@ -34,15 +35,26 @@ public class FileManager {
 		File dir = new File( this.dir );
 		State state = null;
 
-		if ( !dir.exists() ) {
-			return new BaseState( false, AppInfo.NOT_EXIST );
+		Collection<File> list = null;
+		
+		if(OSSClientProperties.useStatus){
+			// 从阿里云OSS服务器中获取文件 
+			// 获取路径 
+			
+			
+		}else{
+			// 从文件夹中获取文件 
+			if ( !dir.exists() ) {
+				return new BaseState( false, AppInfo.NOT_EXIST );
+			}
+			
+			if ( !dir.isDirectory() ) {
+				return new BaseState( false, AppInfo.NOT_DIRECTORY );
+			}
+			
+			list = FileUtils.listFiles( dir, this.allowFiles, true );
 		}
 		
-		if ( !dir.isDirectory() ) {
-			return new BaseState( false, AppInfo.NOT_DIRECTORY );
-		}
-		
-		Collection<File> list = FileUtils.listFiles( dir, this.allowFiles, true );
 		
 		if ( index < 0 || index > list.size() ) {
 			state = new MultiState( true );
@@ -53,6 +65,8 @@ public class FileManager {
 		
 		state.putInfo( "start", index );
 		state.putInfo( "total", list.size() );
+		
+		// 处理连接问题 
 		
 		return state;
 		
