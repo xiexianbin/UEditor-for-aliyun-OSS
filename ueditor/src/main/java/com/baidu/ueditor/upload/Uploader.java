@@ -1,11 +1,12 @@
 package com.baidu.ueditor.upload;
 
-import com.baidu.ueditor.define.State;
-import com.qikemi.packages.baidu.ueditor.upload.AsynUploaderThreader;
-
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+
+import com.baidu.ueditor.define.State;
+import com.qikemi.packages.alibaba.aliyun.oss.properties.OSSClientProperties;
+import com.qikemi.packages.baidu.ueditor.upload.AsynUploaderThreader;
 
 public class Uploader {
 	private HttpServletRequest request = null;
@@ -25,10 +26,13 @@ public class Uploader {
 					this.conf);
 		} else {
 			state = BinaryUploader.save(this.request, this.conf);
-			AsynUploaderThreader asynThreader = new AsynUploaderThreader();
-			asynThreader.init(this.request, this.conf);
-			Thread uploadThreader = new Thread(asynThreader);
-			uploadThreader.start();
+			// 判别云同步 
+			if(OSSClientProperties.useStatus){
+        			AsynUploaderThreader asynThreader = new AsynUploaderThreader();
+        			asynThreader.init(state.toJSONString());
+        			Thread uploadThreader = new Thread(asynThreader);
+        			uploadThreader.start();
+			}
 		}
 		/* {
 		 * 	"state": "SUCCESS",

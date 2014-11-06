@@ -22,7 +22,7 @@ public class OSSClientProperties {
 	try {
 	    inpf = new FileInputStream(new File(OSSKeyPath));
 	    OSSKeyProperties.load(inpf);
-	    useStatus = (Boolean) OSSKeyProperties.get("useStatus");
+	    useStatus = "true".equalsIgnoreCase((String) OSSKeyProperties.get("useStatus")) ? true : false;
 	    key = (String) OSSKeyProperties.get("key");
 	    secret = (String) OSSKeyProperties.get("secret");
 	    endPoint = (String) OSSKeyProperties.get("endPoint");
