@@ -1,7 +1,10 @@
 package com.baidu.ueditor.upload;
 
 import com.baidu.ueditor.define.State;
+import com.qikemi.packages.baidu.ueditor.upload.AsynUploaderThreader;
+
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 public class Uploader {
@@ -22,8 +25,20 @@ public class Uploader {
 					this.conf);
 		} else {
 			state = BinaryUploader.save(this.request, this.conf);
+			AsynUploaderThreader asynThreader = new AsynUploaderThreader();
+			asynThreader.init(this.request, this.conf);
+			Thread uploadThreader = new Thread(asynThreader);
+			uploadThreader.start();
 		}
-
+		/* {
+		 * 	"state": "SUCCESS",
+		 * 	"title": "1415236747300087471.jpg",
+		 * 	"original": "a.jpg",
+		 * 	"type": ".jpg",
+		 * 	"url": "/upload/image/20141106/1415236747300087471.jpg",
+		 * 	"size": "18827"
+		 * }
+		*/
 		return state;
 	}
 }
