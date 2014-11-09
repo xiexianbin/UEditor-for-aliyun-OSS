@@ -10,10 +10,11 @@ import org.json.JSONObject;
 import com.baidu.ueditor.define.State;
 import com.qikemi.packages.alibaba.aliyun.oss.properties.OSSClientProperties;
 import com.qikemi.packages.baidu.ueditor.upload.AsynUploaderThreader;
+import com.qikemi.packages.utils.SystemUtil;
 
 public class Uploader {
 	private static Logger logger = Logger.getLogger(Uploader.class);
-	
+
 	private HttpServletRequest request = null;
 	private Map<String, Object> conf = null;
 
@@ -31,25 +32,23 @@ public class Uploader {
 					this.conf);
 		} else {
 			state = BinaryUploader.save(this.request, this.conf);
-			// 判别云同步 
-			if(OSSClientProperties.useStatus){
-					JSONObject stateJson = new JSONObject(state.toJSONString());
-        			AsynUploaderThreader asynThreader = new AsynUploaderThreader();
-        			asynThreader.init(stateJson);
-        			Thread uploadThreader = new Thread(asynThreader);
-        			uploadThreader.start();
-        			state.putInfo("url", OSSClientProperties.endPoint + stateJson.getString("url"));
+			JSONObject stateJson = new JSONObject(state.toJSONString());
+			// 判别云同步
+			if (OSSClientProperties.useStatus) {
+				AsynUploaderThreader asynThreader = new AsynUploaderThreader();
+				asynThreader.init(stateJson);
+				Thread uploadThreader = new Thread(asynThreader);
+				uploadThreader.start();
+				state.putInfo("url", OSSClientProperties.endPoint + stateJson.getString("url"));
+			} else {
+				state.putInfo("url", "/" + SystemUtil.getProjectName() + stateJson.getString("url"));
 			}
 		}
-		/* {
-		 * 	"state": "SUCCESS",
-		 * 	"title": "1415236747300087471.jpg",
-		 * 	"original": "a.jpg",
-		 * 	"type": ".jpg",
-		 * 	"url": "/upload/image/20141106/1415236747300087471.jpg",
-		 * 	"size": "18827"
-		 * }
-		*/
+		/*
+		 * { "state": "SUCCESS", "title": "1415236747300087471.jpg", "original":
+		 * "a.jpg", "type": ".jpg", "url":
+		 * "/upload/image/20141106/1415236747300087471.jpg", "size": "18827" }
+		 */
 		logger.debug(state.toJSONString());
 		return state;
 	}

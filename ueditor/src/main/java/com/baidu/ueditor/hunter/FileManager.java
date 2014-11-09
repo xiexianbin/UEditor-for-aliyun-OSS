@@ -108,7 +108,7 @@ public class FileManager {
 			}
 			file = (File)obj;
 			fileState = new BaseState( true );
-			fileState.putInfo( "url", "/" + OSSClientProperties.projectName + PathFormat.format( this.getPath( file ) ) );
+			fileState.putInfo( "url", "/" + SystemUtil.getProjectName() + PathFormat.format( this.getPath( file ) ) );
 			state.addState( fileState );
 		}
 		
