@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.aliyun.openservices.oss.OSSClient;
 import com.aliyun.openservices.oss.model.ListObjectsRequest;
@@ -61,9 +63,10 @@ public class ObjectService {
 
 		return result;
 	}
-	
+
 	/**
 	 * 上传Object
+	 * 
 	 * @param client
 	 * @param bucketName
 	 * @param key
@@ -80,7 +83,8 @@ public class ObjectService {
 		ObjectMetadata meta = new ObjectMetadata();
 
 		// 必须设置ContentLength
-		meta.setContentLength(Integer.parseInt(String.valueOf(content.available())));
+		meta.setContentLength(Integer.parseInt(String.valueOf(content
+				.available())));
 		// 用户自定义文件名称
 		meta.addUserMetadata("filename", key);
 
@@ -97,23 +101,27 @@ public class ObjectService {
 	 * @param client
 	 * @param bucketName
 	 * @param delimiter
-	 * 			Delimiter 设置为 “/” 时，返回值就只罗列该文件夹下的文件，可以null
+	 *            Delimiter 设置为 “/” 时，返回值就只罗列该文件夹下的文件，可以null
 	 * @param prefix
-	 * 			Prefix 设为某个文件夹名，就可以罗列以此 Prefix 开头的文件，可以null
+	 *            Prefix 设为某个文件夹名，就可以罗列以此 Prefix 开头的文件，可以null
 	 * @return
 	 */
-	public static ObjectListing listObject(OSSClient client, String bucketName, String delimiter, String prefix) {
+	public static List<String> listObject(OSSClient client, String bucketName,
+			String delimiter, String prefix) {
 
-		// 是否循环的标识 
+		// 是否循环的标识
 		boolean hasNext = false;
 		// 设定结果从Marker之后按字母排序的第一个开始返回
 		String marker = "";
-		// 
-		ObjectListing listing = null;
+		//
+		// ObjectListing listing = new ObjectListing();
+		List<String> filePathList = new ArrayList<String>();
 		// 构造ListObjectsRequest请求
-		ListObjectsRequest listObjectsRequest = new ListObjectsRequest(bucketName);
+		ListObjectsRequest listObjectsRequest = new ListObjectsRequest(
+				bucketName);
 
-		// 是一个用于对Object名字进行分组的字符。所有名字包含指定的前缀且第一次出现Delimiter字符之间的object作为一组元素: CommonPrefixes
+		// 是一个用于对Object名字进行分组的字符。所有名字包含指定的前缀且第一次出现Delimiter字符之间的object作为一组元素:
+		// CommonPrefixes
 		listObjectsRequest.setDelimiter(delimiter);
 		// 限定此次返回object的最大数，如果不设定，默认为100，MaxKeys取值不能大于1000
 		listObjectsRequest.setMaxKeys(20);
@@ -124,37 +132,39 @@ public class ObjectService {
 			// 设定结果从Marker之后按字母排序的第一个开始返回
 			listObjectsRequest.setMarker(marker);
 			// 获取指定bucket下的所有Object信息
-			listing = client.listObjects(listObjectsRequest);
-			// 如果Bucket中的Object数量大于100，则只会返回100个Object， 且返回结果中 IsTruncated 为false
-			if (listing.isTruncated()) {
+			ObjectListing sublisting = client.listObjects(listObjectsRequest);
+			// 如果Bucket中的Object数量大于100，则只会返回100个Object， 且返回结果中 IsTruncated
+			// 为false
+			if (sublisting.isTruncated()) {
 				hasNext = true;
-				marker = listing.getNextMarker();
-			}else{
+				marker = sublisting.getNextMarker();
+			} else {
 				hasNext = false;
 				marker = "";
 			}
-			// 遍历所有Object
-			for (OSSObjectSummary objectSummary : listing.getObjectSummaries()) {
-				System.out.println(objectSummary.getKey());
+			// // 遍历所有Object
+			for (OSSObjectSummary objectSummary : sublisting.getObjectSummaries()) {
+				// System.out.println(objectSummary.getKey());
+				filePathList.add(objectSummary.getKey());
 			}
 		} while (hasNext);
-		
-		return listing;
+
+		return filePathList;
 	}
-	
-	public static void getObject(OSSClient client, String bucketName, String key) throws IOException{
-		
+
+	public static void getObject(OSSClient client, String bucketName, String key)
+			throws IOException {
+
 		// 获取Object，返回结果为OSSObject对象
-	    OSSObject object = client.getObject(bucketName, key);
+		OSSObject object = client.getObject(bucketName, key);
 
-	    // 获取Object的输入流
-	    InputStream objectContent = object.getObjectContent();
+		// 获取Object的输入流
+		InputStream objectContent = object.getObjectContent();
 
-	    // 处理Object
-	    
+		// 处理Object
 
-	    // 关闭流
-	    objectContent.close();
-		
+		// 关闭流
+		objectContent.close();
+
 	}
 }
