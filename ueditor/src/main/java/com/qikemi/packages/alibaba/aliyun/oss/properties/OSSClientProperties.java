@@ -15,6 +15,7 @@ public class OSSClientProperties {
     public static String key = "";
     public static String secret = "";
     public static String endPoint = "";
+    public static String projectName = "";
 
     static {
 	String OSSKeyPath = SystemUtil.getProjectClassesPath() + "OSSKey.properties";
@@ -28,6 +29,7 @@ public class OSSClientProperties {
 	    key = (String) OSSKeyProperties.get("key");
 	    secret = (String) OSSKeyProperties.get("secret");
 	    endPoint = (String) OSSKeyProperties.get("endPoint");
+	    projectName = (String) OSSKeyProperties.get("projectName");
 	} catch (Exception e) {
 	    e.printStackTrace();
 	}

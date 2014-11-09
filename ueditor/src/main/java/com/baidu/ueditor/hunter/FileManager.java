@@ -1,23 +1,19 @@
 package com.baidu.ueditor.hunter;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 
 import com.aliyun.openservices.oss.OSSClient;
-import com.aliyun.openservices.oss.model.Bucket;
 import com.baidu.ueditor.PathFormat;
 import com.baidu.ueditor.define.AppInfo;
 import com.baidu.ueditor.define.BaseState;
 import com.baidu.ueditor.define.MultiState;
 import com.baidu.ueditor.define.State;
-import com.qikemi.packages.alibaba.aliyun.oss.BucketService;
 import com.qikemi.packages.alibaba.aliyun.oss.OSSClientFactory;
 import com.qikemi.packages.alibaba.aliyun.oss.ObjectService;
 import com.qikemi.packages.alibaba.aliyun.oss.properties.OSSClientProperties;
@@ -112,7 +108,7 @@ public class FileManager {
 			}
 			file = (File)obj;
 			fileState = new BaseState( true );
-			fileState.putInfo( "url", PathFormat.format( this.getPath( file ) ) );
+			fileState.putInfo( "url", "/" + OSSClientProperties.projectName + PathFormat.format( this.getPath( file ) ) );
 			state.addState( fileState );
 		}
 		
