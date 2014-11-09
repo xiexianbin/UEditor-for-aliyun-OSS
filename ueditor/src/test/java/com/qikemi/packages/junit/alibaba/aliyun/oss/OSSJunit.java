@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -31,7 +32,7 @@ public class OSSJunit {
 //			System.out.println(result.getETag());
 //		} catch (FileNotFoundException e) {
 //		}
-		ObjectListing listObject = ObjectService.listObject(client, "bucketmy-bucket-nameamesdfswers", null, "/upload/image");
+		List<String> listObject = ObjectService.listObject(client, "bucketmy-bucket-nameamesdfswers", null, "/upload/image");
 //		try {
 //			ObjectService.getObject(client, "bucketmy-bucket-nameamesdfswers", "mysql-connector-java-5.1.33.jar");
 //			
