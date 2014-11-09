@@ -7,16 +7,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.qikemi.packages.utils.SystemUtil;
 
 public class JunitUeditor extends HttpServlet {
 	private static final long serialVersionUID = -4500613200275499491L;
+	
+	private static Logger logger = Logger.getLogger(JunitUeditor.class);
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		System.out.println("doGet");
-		System.out.println(SystemUtil.getProjectName());
+		logger.info("getProjectName->"+SystemUtil.getProjectName());
+		logger.info("getProjectClassesPath->"+SystemUtil.getProjectClassesPath());
+		logger.info("getProjectRootPath->"+SystemUtil.getProjectRootPath());
 		// super.doGet(req, resp);
 	}
 
