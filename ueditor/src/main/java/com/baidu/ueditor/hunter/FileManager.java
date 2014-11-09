@@ -47,7 +47,8 @@ public class FileManager {
 			// 获取prefix
 			// dir = G:/tomcat/apache-tomcat-7.0.56/wtpwebapps/ueditor//upload/image/
 			// projectrootpath = G:/tomcat/apache-tomcat-7.0.56/wtpwebapps/ueditor/
-			String prefix = this.dir.replace(SystemUtil.getProjectRootPath(), "").replaceFirst("/", "");
+			String prefix = this.dir.replace(SystemUtil.getProjectRootPath(), "");
+			prefix = prefix.replaceFirst("/", "");
 			// 获取路径 
 			OSSClient client = OSSClientFactory.createOSSClient();
 			List<String> objectList = ObjectService.listObject(client, OSSClientProperties.bucketName, null, prefix);
