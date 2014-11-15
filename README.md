@@ -1,76 +1,41 @@
-ueditor
-=======
+UEditor-for-aliyun-OSS使用配置
+=====
 
-Create By Xie Xianbin, Package for ueditor and aliyun's OSS.
+UEditor-for-aliyun-OSS v1.0.0提供两种配置模式：
 
-
-最近发现Ueditor 1.4.3 jsp utf-8版，存在图片上传功能不能直接使用的Bug，修复方法如下：
-
-#####1. 修改com.baidu.ueditor.hunter.FileManager类下的getPath方法，参考如下：
+### 1. 标准模式：
 
 
-源代码：
-```
+    即不配置OSSKey.properties文件，该功能同ueditor官方提供的功能一致。
+    
 
-private String getPath ( File file ) {
-
-	String path = file.getAbsolutePath();
-
-	return path.replace( this.rootPath, "/" );
-
-}
-
-```
-
-修改为：
-
-```
-
-private String getPath ( File file ) {
-   String path = file.getAbsolutePath();
-   String str=path.replace(this.rootPath.replaceAll("\\/", "\\\\"), "\\" );
-   return str;
-}
-```
-
-（会导致“在线管理”下的图片不能显示Bug）
-
-#####2. 修改image.js文件，有两处的图片地址设置有问题，这里导致的问题是上传的图片在编辑器中不能显示图片。
+### 2. 高级模式：
 
 
-######（1）：需要自定义一个方法，获取当前项目的地址（方法比较笨，可自行修改）
+    即启用UEditor-for-aliyun-OSS模式，配置及使用方法如下：
 
+
+    1) 把ueditor1_4_3-utf8-jsp文件下的所有文件拷贝到项目的目录下（该文件来自ueditor官网修改后的版本）。
+
+
+    2) 将lib文件夹下的jar包拷贝到项目的lib目录下，导入项目。
+
+
+    3) 配置OSSKey.properties文件，配置如下：
 
 ```
-function getRootPath(){
-
-    //获取当前网址，如： http://localhost/ueditor/index.jsp
-
-    var curWwwPath=window.document.location.href;
-
-	var pathName=window.document.location.pathname;
-
-	var pos=curWwwPath.indexOf(pathName);
-
-	var localhostPaht=curWwwPath.substring(0,pos);
-
-	var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
-
-	return localhostPaht + projectName;
-
-}
+    # ALIYUN OSSClient Configure 
+    useStatus=true
+    bucketName=bucketmy-bucket-nameamesdfswers
+    key=75W7vDuyu04e1XYS
+    secret=
+    ## endPoint=http://images.qikemi.com/
+    endPoint=http://images.qikemi.com/
 ```
-######（2）分别在以下两个地方添加刚才获取的项目地址
 
+### 技术支持
 
-776行：
-```
-src: getRootPath() + prefix + data.url,
-_src: getRootPath() + prefix + data.url,
-```
-912行
-```
-img.setAttribute('src', getRootPath() + urlPrefix + list[i].url + (list[i].url.indexOf('?') == -1 ? '?noCache=':'&noCache=') + (+new Date()).toString(36) );
-img.setAttribute('_src', getRootPath() + urlPrefix + list[i].url);
-```
+邮箱：me@xiexianbin.cn xianbinxie@163.com
+
+QQ：10972072
 
