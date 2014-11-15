@@ -4,14 +4,13 @@ UEditor-for-aliyun-OSS
 Create By Xie Xianbin, Package for ueditor and aliyun's OSS.
 
 
-最近发现Ueditor 1.4.3 jsp utf-8版，存在图片上传功能不能直接使用的Bug，修复方法如下：
+ueditor 1.4.3 jsp utf-8版，存在图片上传功能不能直接使用的Bug，修复方法如下：
 
 #####1. 修改com.baidu.ueditor.hunter.FileManager类下的getPath方法，参考如下：
 
 
 源代码：
 ```
-
 private String getPath ( File file ) {
 
 	String path = file.getAbsolutePath();
@@ -19,13 +18,11 @@ private String getPath ( File file ) {
 	return path.replace( this.rootPath, "/" );
 
 }
-
 ```
 
 修改为：
 
 ```
-
 private String getPath ( File file ) {
    String path = file.getAbsolutePath();
    String str=path.replace(this.rootPath.replaceAll("\\/", "\\\\"), "\\" );
@@ -43,21 +40,13 @@ private String getPath ( File file ) {
 
 ```
 function getRootPath(){
-
     //获取当前网址，如： http://localhost/ueditor/index.jsp
-
     var curWwwPath=window.document.location.href;
-
 	var pathName=window.document.location.pathname;
-
 	var pos=curWwwPath.indexOf(pathName);
-
 	var localhostPaht=curWwwPath.substring(0,pos);
-
 	var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
-
 	return localhostPaht + projectName;
-
 }
 ```
 ######（2）分别在以下两个地方添加刚才获取的项目地址
