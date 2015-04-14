@@ -37,5 +37,4 @@ UEditor-for-aliyun-OSS v1.0.0提供两种配置模式：
 
 邮箱：me@xiexianbin.cn xianbinxie@163.com
 
-QQ：10972072
-
+QQ群：20038301
