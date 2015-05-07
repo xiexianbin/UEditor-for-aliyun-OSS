@@ -33,7 +33,6 @@ UEditor-for-aliyun-OSS v1.0.0提供两种配置模式：
     endPoint=http://images.qikemi.com/
 ```
 
-
     4) 将/ueditor/src/main/webapp/index.jsp文件放在WebContent或webapp，注意修改ueditor.config.js，ueditor.all.js，ueditor.css等的引用路径。
     
     
