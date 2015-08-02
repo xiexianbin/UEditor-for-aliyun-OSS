@@ -679,6 +679,6 @@ UE.I18N['en'] = {
         }
     },
     'autosave': {
-        'success':'Local conservation success'
+        'success':'Aliyun OSS conservation success'
     }
 };
