@@ -10,11 +10,12 @@ import com.qikemi.packages.alibaba.aliyun.oss.properties.OSSClientProperties;
  * 
  * @create date : 2014年10月28日 上午11:20:56
  * @Author XieXianbin<a.b@hotmail.com>
- * @Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
+ * @Source Repositories Address: <https://github.com/qikemi/UEditor-for-aliyun-OSS>
  */
 public class OSSClientFactory {
 
 	private static Logger logger = Logger.getLogger(OSSClientFactory.class);
+	private static OSSClient client = null;
 	
 	/**
 	 * 新建OSSClient 
@@ -22,8 +23,10 @@ public class OSSClientFactory {
 	 * @return
 	 */
 	public static OSSClient createOSSClient(){
-		OSSClient client = new OSSClient(OSSClientProperties.key, OSSClientProperties.secret);
-		logger.info("createOSSClient success.");
+		if ( null == client){
+			client = new OSSClient(OSSClientProperties.key, OSSClientProperties.secret);
+			logger.info("First CreateOSSClient success.");
+		}
 		return client;
 	}
 	
