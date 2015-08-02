@@ -1,0 +1,29 @@
+# ALIYUN OSSClient Configure 
+useStatus=true
+bucketName=
+key=
+secret=
+## endPoint=http://images.qikemi.com/
+endPoint=http://ali--cdn.oss-cn-hangzhou.aliyuncs.com/
+# 用户代理，指HTTP的User-Agent头。默认为”aliyun-sdk-java”
+userAgent=
+# 代理服务器主机地址
+ProxyHost=
+# 代理服务器端口
+ProxyPort=
+# 代理服务器验证的用户名
+ProxyUsername=
+# 代理服务器验证的密码
+ProxyPassword=
+# 访问NTLM验证的代理服务器的Windows域名
+ProxyDomain=
+# NTLM代理服务器的Windows工作站名称
+ProxyWorkstation=
+# 允许打开的最大HTTP连接数。默认为50
+MaxConnections=
+# 通过打开的连接传输数据的超时时间（单位：毫秒）。默认为50000毫秒
+SocketTimeout=
+# 建立连接的超时时间（单位：毫秒）。默认为50000毫秒
+ConnectionTimeout=
+# 可重试的请求失败后最大的重试次数。默认为3次
+MaxErrorRetry=
