@@ -664,6 +664,6 @@ UE.I18N['zh-cn'] = {
     },
     'autosave': {
         'saving':'保存中...',
-        'success':'本地保存成功'
+        'success':'阿里云OSS保存成功'
     }
 };
