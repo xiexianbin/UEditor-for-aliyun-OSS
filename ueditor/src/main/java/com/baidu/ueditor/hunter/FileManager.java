@@ -14,6 +14,7 @@ import com.baidu.ueditor.define.AppInfo;
 import com.baidu.ueditor.define.BaseState;
 import com.baidu.ueditor.define.MultiState;
 import com.baidu.ueditor.define.State;
+import com.qikemi.packages.alibaba.aliyun.oss.BucketService;
 import com.qikemi.packages.alibaba.aliyun.oss.OSSClientFactory;
 import com.qikemi.packages.alibaba.aliyun.oss.ObjectService;
 import com.qikemi.packages.alibaba.aliyun.oss.properties.OSSClientProperties;
@@ -51,6 +52,9 @@ public class FileManager {
 			prefix = prefix.replaceFirst("/", "");
 			// 获取路径 
 			OSSClient client = OSSClientFactory.createOSSClient();
+			if (OSSClientProperties.autoCreateBucket) {
+				BucketService.create(client, OSSClientProperties.bucketName);
+			}
 			List<String> objectList = ObjectService.listObject(client, OSSClientProperties.bucketName, null, prefix);
 
 			if ( index < 0 || index > objectList.size() ) {
@@ -131,7 +135,7 @@ public class FileManager {
 			}
 //			file = (File)obj;
 			fileState = new BaseState( true );
-			fileState.putInfo( "url", PathFormat.format( OSSClientProperties.endPoint + obj ) );
+			fileState.putInfo( "url", PathFormat.format( OSSClientProperties.ossEndPoint + obj ) );
 			state.addState( fileState );
 		}
 		
