@@ -14,11 +14,19 @@ public class OSSClientProperties {
 	
 	private static Properties OSSKeyProperties = new Properties();
 	// 阿里云是否启用配置
-	public static String bucketName = "";
 	public static boolean useStatus = false;
+	public static String bucketName = "";
 	public static String key = "";
 	public static String secret = "";
-	public static String endPoint = "";
+	public static boolean autoCreateBucket = false;
+	
+	public static String ossEndPoint = "";
+	public static boolean useCDN = false;
+	public static String cdnEndPoint = "";
+	
+	public static boolean useLocalStorager = false;
+	public static String uploadBasePath = "upload";
+	public static boolean useAsynUploader = false;
 
 	static {
 		String OSSKeyPath = SystemUtil.getProjectClassesPath()
@@ -28,11 +36,20 @@ public class OSSClientProperties {
 		try {
 			inpf = new FileInputStream(new File(OSSKeyPath));
 			OSSKeyProperties.load(inpf);
+			
 			useStatus = "true".equalsIgnoreCase((String) OSSKeyProperties.get("useStatus")) ? true : false;
 			bucketName = (String) OSSKeyProperties.get("bucketName");
 			key = (String) OSSKeyProperties.get("key");
 			secret = (String) OSSKeyProperties.get("secret");
-			endPoint = (String) OSSKeyProperties.get("endPoint");
+			autoCreateBucket = "true".equalsIgnoreCase((String) OSSKeyProperties.get("autoCreateBucket")) ? true : false;
+			
+			ossEndPoint = (String) OSSKeyProperties.get("ossEndPoint");
+			useCDN = "true".equalsIgnoreCase((String) OSSKeyProperties.get("useCDN")) ? true : false;
+			cdnEndPoint = (String) OSSKeyProperties.get("cdnEndPoint");
+			
+			useLocalStorager = "true".equalsIgnoreCase((String) OSSKeyProperties.get("useLocalStorager")) ? true : false;
+			uploadBasePath = (String) OSSKeyProperties.get("uploadBasePath");
+			useAsynUploader = "true".equalsIgnoreCase((String) OSSKeyProperties.get("useAsynUploader")) ? true : false;
 		} catch (Exception e) {
 			logger.warn("系统未找到指定文件：OSSKey.properties --> 系统按照ueditor默认配置执行。");
 		}
