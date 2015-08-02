@@ -16,7 +16,7 @@ import com.aliyun.openservices.oss.model.CannedAccessControlList;
  * 
  * @create date : 2014年10月28日 上午10:52:00
  * @Author XieXianbin<a.b@hotmail.com>
- * @Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
+ * @Source Repositories Address: <https://github.com/qikemi/UEditor-for-aliyun-OSS>
  */
 public class BucketService {
 

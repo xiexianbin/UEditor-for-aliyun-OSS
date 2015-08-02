@@ -27,7 +27,7 @@ import com.aliyun.openservices.oss.model.PutObjectResult;
  * 
  * @create date : 2014年10月28日 下午2:03:24
  * @Author XieXianbin<a.b@hotmail.com>
- * @Source Repositories Address: <https://github.com/qikemi/open-wechat-sdk>
+ * @Source Repositories Address: <https://github.com/qikemi/UEditor-for-aliyun-OSS>
  */
 public class ObjectService {
 
