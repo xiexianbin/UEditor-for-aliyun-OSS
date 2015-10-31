@@ -24,7 +24,7 @@ public class OSSClientFactory {
 	 */
 	public static OSSClient createOSSClient(){
 		if ( null == client){
-			client = new OSSClient(OSSClientProperties.key, OSSClientProperties.secret);
+			client = new OSSClient(OSSClientProperties.ossEndPoint, OSSClientProperties.key, OSSClientProperties.secret);
 			logger.info("First CreateOSSClient success.");
 		}
 		return client;

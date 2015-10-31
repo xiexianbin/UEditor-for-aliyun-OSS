@@ -24,6 +24,7 @@ public final class ConfigManager {
 
 	private final String rootPath;
 	private final String originalPath;
+	@SuppressWarnings("unused")
 	private final String contextPath;
 	private static final String configFileName = "config.json";
 	private String parentPath = null;

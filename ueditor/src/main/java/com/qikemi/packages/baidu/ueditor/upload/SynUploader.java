@@ -11,9 +11,7 @@ import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
 import com.aliyun.openservices.oss.OSSClient;
-import com.aliyun.openservices.oss.model.Bucket;
 import com.aliyun.openservices.oss.model.PutObjectResult;
-import com.qikemi.packages.alibaba.aliyun.oss.BucketService;
 import com.qikemi.packages.alibaba.aliyun.oss.ObjectService;
 import com.qikemi.packages.alibaba.aliyun.oss.properties.OSSClientProperties;
 import com.qikemi.packages.utils.SystemUtil;
@@ -32,15 +30,15 @@ public class SynUploader extends Thread {
 
 	public boolean upload(JSONObject stateJson, OSSClient client,
 			HttpServletRequest request) {
-		Bucket bucket = BucketService.create(client,
-				OSSClientProperties.bucketName);
+//		Bucket bucket = BucketService.create(client,
+//				OSSClientProperties.bucketName);
 		// get the key, which the upload file path
 		String key = stateJson.getString("url").replaceFirst("/", "");
 		try {
 			FileInputStream fileInputStream = new FileInputStream(new File(
 					SystemUtil.getProjectRootPath() + key));
 			PutObjectResult result = ObjectService.putObject(client,
-					bucket.getName(), key, fileInputStream);
+					OSSClientProperties.bucketName, key, fileInputStream);
 			logger.debug("upload file to aliyun OSS object server success. ETag: "
 					+ result.getETag());
 			return true;
