@@ -20,6 +20,7 @@ public class OSSClientProperties {
 	public static String secret = "";
 	public static boolean autoCreateBucket = false;
 	
+	public static String ossCliendEndPoint = "";
 	public static String ossEndPoint = "";
 	public static boolean useCDN = false;
 	public static String cdnEndPoint = "";
@@ -43,6 +44,7 @@ public class OSSClientProperties {
 			secret = (String) OSSKeyProperties.get("secret");
 			autoCreateBucket = "true".equalsIgnoreCase((String) OSSKeyProperties.get("autoCreateBucket")) ? true : false;
 			
+			ossCliendEndPoint = (String) OSSKeyProperties.get("ossCliendEndPoint");
 			ossEndPoint = (String) OSSKeyProperties.get("ossEndPoint");
 			useCDN = "true".equalsIgnoreCase((String) OSSKeyProperties.get("useCDN")) ? true : false;
 			cdnEndPoint = (String) OSSKeyProperties.get("cdnEndPoint");
