@@ -16,7 +16,7 @@ UEditor-for-aliyun-OSS-1.2.0-beta提供两种配置模式：
 1) 把/src/ueditor1_4_3-utf8-jsp文件下的所有文件拷贝到项目的目录下（该文件来自ueditor官网修改后的版本）。
 
 
-2) 到https://github.com/qikemi/UEditor-for-aliyun-OSS/releases下载UEditor-for-aliyun-OSS-1.2.0-beta.jar包，与从/src/lib文件夹下的jar包一同拷贝到项目的lib目录下，导入项目。
+2) 到 https://github.com/qikemi/UEditor-for-aliyun-OSS/releases  下载UEditor-for-aliyun-OSS-1.2.0-beta.jar包，与从/src/lib文件夹下的jar包一同拷贝到项目的lib目录下，导入项目。
 
 
 3) 将/src/OSSKey.properties拷贝到src/main/resources目录下，配置OSSKey.properties文件，修改如下：
