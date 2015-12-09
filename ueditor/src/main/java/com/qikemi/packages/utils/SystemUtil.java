@@ -28,6 +28,11 @@ public class SystemUtil {
 			if (!isLinux()) {
 				classesPath = classesPath.replaceFirst("/", "");
 			}
+			try {
+				classesPath = URLDecoder.decode(classesPath, "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
 		}
 		return classesPath;
 	}
