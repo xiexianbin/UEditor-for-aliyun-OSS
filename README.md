@@ -70,3 +70,17 @@ useAsynUploader=false
 邮箱：me@xiexianbin.cn xianbinxie@163.com
 
 QQ群：20038301
+
+
+### 捐赠
+
+本项目是个人业余时间开发和提供技术支持，欢迎捐赠！
+
+![WeChat](http://cdn1.xiexianbin.cn/wechat%2Fmm_facetoface_collect_qrcode_1455967804758.png "微信捐赠地址")
+
+![AliPay](http://cdn1.xiexianbin.cn/wechat%2Fmm_facetoface_collect_qrcode_1455967804758.png "支付宝捐赠地址")
+
+
+
+
+
