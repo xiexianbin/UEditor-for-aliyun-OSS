@@ -76,9 +76,13 @@ QQ群：20038301
 
 本项目是个人业余时间开发和提供技术支持，欢迎捐赠！
 
+微信二维码：
+
 ![WeChat](http://cdn1.xiexianbin.cn/wechat%2Fmm_facetoface_collect_qrcode_1455967804758.png "微信捐赠地址")
 
-![AliPay](http://cdn1.xiexianbin.cn/wechat%2Fmm_facetoface_collect_qrcode_1455967804758.png "支付宝捐赠地址")
+支付宝二维码：
+
+![AliPay](http://cdn1.xiexianbin.cn/alipay%2Falipay_github.png "支付宝捐赠地址")
 
 
 
