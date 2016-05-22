@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.qikemi.packages.ueditor</groupId>
 	<artifactId>ueditor</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>war</packaging>
 	<name>ueditor</name>
 	<description>Create By Xie Xianbin, Package for ueditor and aliyun's OSS.</description>

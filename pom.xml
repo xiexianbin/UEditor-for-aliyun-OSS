@@ -6,7 +6,7 @@
         <artifactId>ueditor-parent</artifactId>
         <version>10</version>
     </parent>
-    <modelVersion>1.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
     <groupId>cn.xiexianbin.ueditor</groupId>
     <artifactId>UEditor-for-aliyun-OSS</artifactId>
     <packaging>pom</packaging>
