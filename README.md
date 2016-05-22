@@ -1,6 +1,10 @@
 UEditor-for-aliyun-OSS使用配置
 =====
 
+## Build [![Build Status](https://travis-ci.org/XieXianbin/UEditor-for-aliyun-OSS.svg?branch=master)](https://travis-ci.org/XieXianbin/UEditor-for-aliyun-OSS)[![Issue Stats](http://www.issuestats.com/github/XieXianbin/UEditor-for-aliyun-OSS/badge/issue)](http://www.issuestats.com/github/XieXianbin/UEditor-for-aliyun-OSS)
+
+## 使用
+
 UEditor-for-aliyun-OSS-1.2.0-beta提供两种配置模式：
 
 ### 1. 标准模式：
