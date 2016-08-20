@@ -26,8 +26,8 @@ import com.aliyun.openservices.oss.model.PutObjectResult;
  * data是Object的数据。
  * 
  * @create date : 2014年10月28日 下午2:03:24
- * @Author XieXianbin<a.b@hotmail.com>
- * @Source Repositories Address: <https://github.com/qikemi/UEditor-for-aliyun-OSS>
+ * @Author XieXianbin<me@xiexianbin.cn>
+ * @Source Repositories Address: <https://github.com/XieXianbin/UEditor-for-aliyun-OSS>
  */
 public class ObjectService {
 

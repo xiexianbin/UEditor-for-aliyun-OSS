@@ -20,9 +20,9 @@ import com.qikemi.packages.utils.SystemUtil;
  * 同步上传文件到阿里云OSS<br>
  * 
  * @create date : 2014年10月28日 22:11:00
- * @Author XieXianbin<a.b@hotmail.com>
+ * @Author XieXianbin<me@xiexianbin.cn>
  * @Source Repositories Address:
- *         <https://github.com/qikemi/UEditor-for-aliyun-OSS>
+ *         <https://github.com/XieXianbin/UEditor-for-aliyun-OSS>
  */
 public class SynUploader extends Thread {
 

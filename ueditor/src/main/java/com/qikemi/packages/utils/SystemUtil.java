@@ -8,8 +8,8 @@ import java.util.Properties;
  * System Utils
  * 
  * @create date : 2014年10月28日 上午9:13:10
- * @Author XieXianbin<a.b@hotmail.com>
- * @Source Repositories Address: <https://github.com/qikemi/UEditor-for-aliyun-OSS>
+ * @Author XieXianbin<me@xiexianbin.cn>
+ * @Source Repositories Address: <https://github.com/XieXianbin/UEditor-for-aliyun-OSS>
  */
 public class SystemUtil {
 
