@@ -14,9 +14,7 @@ import com.aliyun.openservices.oss.model.CannedAccessControlList;
  * 。一个应用，例如图片分享网站，可以对应一个或多个Bucket。一个用户最多可创建10个Bucket
  * ，但每个Bucket中存放的Object的数量和大小总和没有限制，用户不需要考虑数据的可扩展性。
  * 
- * @create date : 2014年10月28日 上午10:52:00
- * @Author XieXianbin<me@xiexianbin.cn>
- * @Source Repositories Address: <https://github.com/XieXianbin/UEditor-for-aliyun-OSS>
+ * @author XieXianbin me@xiexianbin.cn
  */
 public class BucketService {
 
@@ -30,7 +28,9 @@ public class BucketService {
 	 * 必须以小写字母或者数字开头 <br>
 	 * 长度必须在3-63字节之间
 	 * 
-	 * @return
+	 * @param client
+	 * @param bucketName
+	 * @return bucket
 	 */
 	public static Bucket create(OSSClient client, String bucketName) {
 		Bucket bucket = client.createBucket(bucketName);
@@ -40,7 +40,8 @@ public class BucketService {
 	/**
 	 * 列出用户所有的Bucket<br>
 	 * 
-	 * @return
+	 * @param client
+	 * @return buckets
 	 */
 	public static List<Bucket> list(OSSClient client) {
 		List<Bucket> buckets = client.listBuckets();
@@ -52,7 +53,7 @@ public class BucketService {
 	 * 
 	 * @param client
 	 * @param bucketName
-	 * @return
+	 * @return boolean exists
 	 */
 	public static boolean doesBucketExist(OSSClient client, String bucketName) {
 		// 获取Bucket的存在信息

@@ -8,9 +8,7 @@ import com.qikemi.packages.alibaba.aliyun.oss.properties.OSSClientProperties;
 /**
  * OSSClient是OSS服务的Java客户端，它为调用者提供了一系列的方法，用于和OSS服务进行交互<br>
  * 
- * @create date : 2014年10月28日 上午11:20:56
- * @Author XieXianbin<me@xiexianbin.cn>
- * @Source Repositories Address: <https://github.com/XieXianbin/UEditor-for-aliyun-OSS>
+ * @author XieXianbin me@xiexianbin.cn
  */
 public class OSSClientFactory {
 
@@ -20,7 +18,7 @@ public class OSSClientFactory {
 	/**
 	 * 新建OSSClient 
 	 * 
-	 * @return
+	 * @return client
 	 */
 	public static OSSClient createOSSClient(){
 		if ( null == client){

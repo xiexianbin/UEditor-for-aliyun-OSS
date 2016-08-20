@@ -25,9 +25,7 @@ import com.aliyun.openservices.oss.model.PutObjectResult;
  * meta是用户对该object的描述，由一系列name-value对组成；<br>
  * data是Object的数据。
  * 
- * @create date : 2014年10月28日 下午2:03:24
- * @Author XieXianbin<me@xiexianbin.cn>
- * @Source Repositories Address: <https://github.com/XieXianbin/UEditor-for-aliyun-OSS>
+ * @author XieXianbin me@xiexianbin.cn
  */
 public class ObjectService {
 
@@ -38,7 +36,7 @@ public class ObjectService {
 	 * @param bucketName
 	 * @param key
 	 * @param filePath
-	 * @return
+	 * @return class PutObjectResult
 	 * @throws FileNotFoundException
 	 */
 	public static PutObjectResult putObject(OSSClient client,
@@ -71,7 +69,7 @@ public class ObjectService {
 	 * @param bucketName
 	 * @param key
 	 * @param content
-	 * @return
+	 * @return class PutObjectResult
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 */
@@ -104,7 +102,7 @@ public class ObjectService {
 	 *            Delimiter 设置为 “/” 时，返回值就只罗列该文件夹下的文件，可以null
 	 * @param prefix
 	 *            Prefix 设为某个文件夹名，就可以罗列以此 Prefix 开头的文件，可以null
-	 * @return
+	 * @return List
 	 */
 	public static List<String> listObject(OSSClient client, String bucketName,
 			String delimiter, String prefix) {

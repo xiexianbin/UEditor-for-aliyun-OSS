@@ -7,9 +7,7 @@ import java.util.Properties;
 /**
  * System Utils
  * 
- * @create date : 2014年10月28日 上午9:13:10
- * @Author XieXianbin<me@xiexianbin.cn>
- * @Source Repositories Address: <https://github.com/XieXianbin/UEditor-for-aliyun-OSS>
+ * @author XieXianbin me@xiexianbin.cn
  */
 public class SystemUtil {
 
@@ -21,7 +19,7 @@ public class SystemUtil {
 	/**
 	 * 获取系统编译文件的路径
 	 * 
-	 * @return
+	 * @return classesPath
 	 */
 	public static String getProjectClassesPath() {
 		if (classesPath == null) {
@@ -92,7 +90,7 @@ public class SystemUtil {
 	/**
 	 * 获取系统的类型
 	 * 
-	 * @return
+	 * @return osName
 	 */
 	public static String getOsName() {
 		if (osName == null) {

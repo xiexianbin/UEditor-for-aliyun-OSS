@@ -21,10 +21,7 @@ import com.qikemi.packages.utils.SystemUtil;
 /**
  * 同步上传文件到阿里云OSS<br>
  * 
- * @create date : 2014年10月28日 上午22:15:00
- * @Author XieXianbin<me@xiexianbin.cn>
- * @Source Repositories Address:
- *         <https://github.com/XieXianbin/UEditor-for-aliyun-OSS>
+ * @author XieXianbin me@xiexianbin.cn
  */
 public class Uploader {
 	private static Logger logger = Logger.getLogger(Uploader.class);

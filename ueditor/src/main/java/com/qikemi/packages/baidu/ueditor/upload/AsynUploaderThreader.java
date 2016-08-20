@@ -10,10 +10,7 @@ import com.aliyun.openservices.oss.OSSClient;
 /**
  * 异步上传文件到阿里云OSS
  * 
- * @create date : 2015年08月01日 上午22:13:00
- * @Author XieXianbin<me@xiexianbin.cn>
- * @Source Repositories Address:
- *         <https://github.com/XieXianbin/UEditor-for-aliyun-OSS>
+ * @author XieXianbin me@xiexianbin.cn
  */
 public class AsynUploaderThreader extends Thread {
 
