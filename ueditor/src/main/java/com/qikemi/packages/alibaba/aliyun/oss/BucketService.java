@@ -15,7 +15,7 @@ import com.aliyun.openservices.oss.model.CannedAccessControlList;
  * ，但每个Bucket中存放的Object的数量和大小总和没有限制，用户不需要考虑数据的可扩展性。
  * 
  * @create date : 2014年10月28日 上午10:52:00
- * @Author XieXianbin<a.b@hotmail.com>
+ * @Author XieXianbin<me@xiexianbin.cn>
  * @Source Repositories Address: <https://github.com/qikemi/UEditor-for-aliyun-OSS>
  */
 public class BucketService {
