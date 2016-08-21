@@ -3,14 +3,20 @@ UEditor-for-aliyun-OSS使用配置
 
 ## Build [![Build Status](https://travis-ci.org/XieXianbin/UEditor-for-aliyun-OSS.svg?branch=master)](https://travis-ci.org/XieXianbin/UEditor-for-aliyun-OSS)[![Issue Stats](http://www.issuestats.com/github/XieXianbin/UEditor-for-aliyun-OSS/badge/issue)](http://www.issuestats.com/github/XieXianbin/UEditor-for-aliyun-OSS)
 
+## 版本说明
+
+1. UEditor-for-aliyun-OSS-v1.2.1-beta和v1.4。3之前的版本均对应ueditor的官方[v1.4.3版本](https://github.com/fex-team/ueditor/tree/v1.4.3 "ueditor v1.4.3 代码")
+
+2. UEditor-for-aliyun-OSS-v1.2.1-beta之后版本将于ueditor官方保持一致。即UEditor-for-aliyun-OSS-v1.4.3.1版本对应ueditor的v1.4.3.1版本。
+
 ## 使用
 
-UEditor-for-aliyun-OSS-1.2.0-beta提供两种配置模式：
+UEditor-for-aliyun-OSS提供两种配置模式：
 
 ### 1. 标准模式：
 
-即不配置OSSKey.properties文件或配置useStatus=false，该功能同ueditor官方提供的功能一致。
-    
+配置文件OSSKey.properties位于src/main/resources目录下（及java的classpath目录下），若不配置OSSKey.properties文件或配置useStatus=false，该功能同ueditor官方提供的功能一致；否则，将启用ue的高级功能。。
+
 
 ### 2. 高级模式：
 
@@ -71,7 +77,7 @@ useAsynUploader=false
 
 ### 技术支持
 
-邮箱：me@xiexianbin.cn xianbinxie@163.com
+邮箱：me@xiexianbin.cn
 
 QQ群：20038301
 
@@ -79,14 +85,6 @@ QQ群：20038301
 ### 捐赠
 
 本项目是个人业余时间开发和提供技术支持，欢迎捐赠！
-
-微信二维码：
-
-![WeChat](http://cdn1.xiexianbin.cn/wechat%2Fmm_facetoface_collect_qrcode_1455967804758.png "微信捐赠地址")
-
-支付宝二维码：
-
-![AliPay](http://cdn1.xiexianbin.cn/alipay%2Falipay_github.png "支付宝捐赠地址")
 
 
 
