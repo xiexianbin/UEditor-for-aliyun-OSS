@@ -9,6 +9,16 @@ UEditor-for-aliyun-OSS使用配置
 
 2. UEditor-for-aliyun-OSS-v1.2.1-beta之后版本将于ueditor官方保持一致。即UEditor-for-aliyun-OSS-v1.4.3.1版本对应ueditor的v1.4.3.1版本。
 
+## Maven
+
+```
+<dependency>
+  <groupId>cn.xiexianbin.ueditor</groupId>
+  <artifactId>UEditor-for-aliyun-OSS</artifactId>
+  <version>1.4.3</version>
+</dependency>
+```
+
 ## 使用
 
 UEditor-for-aliyun-OSS提供两种配置模式：
