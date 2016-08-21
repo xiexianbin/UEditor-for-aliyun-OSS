@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.qikemi.packages.ueditor</groupId>
-        <artifactId>UEditor-for-aliyun-OSS</artifactId>
+        <groupId>cn.xiexianbin</groupId>
+        <artifactId>ueditor</artifactId>
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -31,16 +31,11 @@
     </developers>
 
     <scm>
-        <connection>
-            scm:git:https://github.com/XieXianbin/UEditor-for-aliyun-OSS.git
-        </connection>
-        <developerConnection>
-            scm:git:https://github.com/XieXianbin/UEditor-for-aliyun-OSS.git
-        </developerConnection>
+        <connection>scm:git:git://github.com/XieXianbin/UEditor-for-aliyun-OSS.git</connection>
+        <developerConnection>scm:git:ssh://github.com/XieXianbin/UEditor-for-aliyun-OSS.git</developerConnection>
         <url>https://github.com/XieXianbin/UEditor-for-aliyun-OSS</url>
         <tag>v1.2.1-beta</tag>
     </scm>
-
 
     <distributionManagement>
         <snapshotRepository>
@@ -191,6 +186,18 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
             </plugin>
 
         </plugins>
