@@ -21,7 +21,7 @@
 # Generate the OAUTH-TOKEN atd at https://github.com/settings/applications
 # Install travis: gem install travis
 # Login to travis: travis login
-# Encrypt the token: travis encrypt GH_TOKEN=[OAUTH-TOKEN] -r Jasig/cas --add env.global
+# Encrypt the token: travis encrypt GH_TOKEN=[OAUTH-TOKEN] -r XieXianbin/UEditor-for-aliyun-OSS --add env.global
 #
 
 language: java
@@ -44,7 +44,7 @@ env:
   - secure: "f3mDIZ8m6NYJXI8KvWD/sZRSeCCyIyfgPRy3Q6o9u9WyHZuYaJf95Ia0eJQ3gxUDS1TKL31Vk08dhFKrfIcKgifFPa2uQ2uyJkvGxlarMTQ+tpqsZYp4zAJgKc9r4xdZasvF2k4xqr+pl9AFjlpXB4jDD59XPXt3DcRABOYA9sM="
 script: mvn package -ff -B
 before_install:
-- ls ./etc
+- ll ./etc
 - sudo unzip -j -o ./etc/jce7.zip *.jar -d `jdk_switcher home oraclejdk7`/jre/lib/security
 - sudo ls `jdk_switcher home oraclejdk7`/jre/lib/security
 - sudo cp ./etc/java.security `jdk_switcher home oraclejdk7`/jre/lib/security
