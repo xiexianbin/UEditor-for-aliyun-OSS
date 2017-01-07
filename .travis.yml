@@ -43,7 +43,7 @@ env:
 script: mvn package -ff -B
 before_install:
 - cat /home/travis/build.sh
-- ll ./etc
+- ls /etc
 - sudo unzip -j -o ./etc/jce7.zip *.jar -d `jdk_switcher home oraclejdk7`/jre/lib/security
 - sudo ls `jdk_switcher home oraclejdk7`/jre/lib/security
 - sudo cp ./etc/java.security `jdk_switcher home oraclejdk7`/jre/lib/security
