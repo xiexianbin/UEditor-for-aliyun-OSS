@@ -42,11 +42,10 @@ env:
   - secure: "JlFTItSTHxmevCoX1fXWkXtQOqP8ERT5ndeYMc378acqZIWEpmoSQelP8unRjtU6sU/4dxdUWpEFLrbcNQsFuPsgzMLGSwuEcjbuSBGMgdAHXSl6+FfBWrCcde2WIfk+eYMm7mrhcySWMvtWss1kDOu+s8+HtRvnRCAsfz+77hs="
 script: mvn package -ff -B
 before_install:
-- cat /home/travis/build.sh
 - ls /etc
-- sudo unzip -j -o ./etc/jce7.zip *.jar -d `jdk_switcher home oraclejdk7`/jre/lib/security
+- sudo unzip -j -o /etc/jce7.zip *.jar -d `jdk_switcher home oraclejdk7`/jre/lib/security
 - sudo ls `jdk_switcher home oraclejdk7`/jre/lib/security
-- sudo cp ./etc/java.security `jdk_switcher home oraclejdk7`/jre/lib/security
+- sudo cp /etc/java.security `jdk_switcher home oraclejdk7`/jre/lib/security
 - chmod -R 777 ./travis/init-travis-build.sh
 - ./travis/init-travis-build.sh
 install:
