@@ -1,7 +1,13 @@
 UEditor-for-aliyun-OSS使用配置
 =====
 
-## Build [![Build Status](https://travis-ci.org/XieXianbin/UEditor-for-aliyun-OSS.svg?branch=master)](https://travis-ci.org/XieXianbin/UEditor-for-aliyun-OSS)[![Issue Stats](http://www.issuestats.com/github/XieXianbin/UEditor-for-aliyun-OSS/badge/issue)](http://www.issuestats.com/github/XieXianbin/UEditor-for-aliyun-OSS)
+##
+[![Build Status](https://travis-ci.org/XieXianbin/UEditor-for-aliyun-OSS.svg?branch=master)](https://travis-ci.org/XieXianbin/UEditor-for-aliyun-OSS) 
+[![Issue Stats](http://www.issuestats.com/github/XieXianbin/UEditor-for-aliyun-OSS/badge/issue)](http://www.issuestats.com/github/XieXianbin/UEditor-for-aliyun-OSS)
+
+
+### 该项目停止更新，由项目https://github.com/XieXianbin/ueditor-plus 替代。
+
 
 ## 版本说明
 
