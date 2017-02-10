@@ -3,6 +3,7 @@ UEditor-for-aliyun-OSS使用配置
 
 ##
 [![Build Status](https://travis-ci.org/XieXianbin/UEditor-for-aliyun-OSS.svg?branch=master)](https://travis-ci.org/XieXianbin/UEditor-for-aliyun-OSS) 
+[![CodeShip Build Status](https://app.codeship.com/projects/c3104a60-bce2-0133-d888-129a4e5cf2b4/status?branch=master)](https://app.codeship.com/projects/136395)
 [![Issue Stats](http://www.issuestats.com/github/XieXianbin/UEditor-for-aliyun-OSS/badge/issue)](http://www.issuestats.com/github/XieXianbin/UEditor-for-aliyun-OSS)
 
 
